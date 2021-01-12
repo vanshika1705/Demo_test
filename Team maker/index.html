@@ -3,41 +3,56 @@
     <head>
         <meta charset="UTF-8">
         <title>Ramdom Team Selector</title>
-        <link rel="stylesheet" href="Teammaker.css">
+        <link rel="stylesheet" href="main.css">
         <meta name="viewport" content="width= device-width , initial-scale=1.0">
     </head>
     <body >
-        <div id=header>
-            <img src="headerbck.jpg" width="100%" height="100%">
+        <div id="header">
+            
            <h1>Random Team Selector</h1>
         </div>
+        
         <div class="navbar">
             <input type="text" placeholder="Search.." name="Search">
-            <a href="index.html">Home</a>
-            <a href="#" onclick="reset();" >Reset</a>
-            <a href="#" class="themebtn"  >Dark Mode</a>
-            <a href="#">Contact Us</a>
+            <a href="index.html"><h2>Home</h2></a>
+            <a href="#" onclick="reset();" ><h2>Reset</h2></a>
+           
+            <a href="#"><h2>Contact Us</h2> </a>
           
-    </div> 
-             <div id= participant class="rotate" >
-                <h2>Add Participant</h2>
-                <input  type="text" id="text" placeholder="participant's name" onchange="add()">
-                <input type="button" class ="add" value="Add">
-                 <div id="ulList"></div>
-
+      </div> 
+      <div id="main">
+             <div id= participant  >
+                <div id="inputlabel"> <h2 >1. Add Participant</h2></div>
+                <input  type="text" id="text" placeholder="Participant's name" onchange="add()">
+                <button id="add_btn" class ="add" >Add</button>
+                <div id="ulList"></div>
              </div>
             
             <div id=chooseteam class="rotate">
-                 <img src="Buttonimage.png" id ="btnimage"> 
-       
+                    
+                    <button id="create" > <h2> 3. Generate Teams</h2></button><br>
+                    <span id="note">Scroll down for Results</span>
                 </div> 
                 
              <div id="team" class="rotate">
-                <h2>Add Team</h2>
-                <input  type="text" id="text" placeholder="Team Title">
-                <input type="button" class="add" value="Add">
+                <div id="inputlabel"> <h2 >2. Add Team</h2></div>
+                <input  type="text" id="input" placeholder="Team Title">
+                <input type="button" id="add_btn"  value="Add">
+             </div>
+             <div id="result" >
+                 <div id="inputlabel"><h2>4. Assigned Teams</h2></div>
+                 <div id="teamresult"><div id="inputlabel1"><h3>Team No. 1</h3></div></div>
+                 <div id="teamresult"><div id="inputlabel1"><h3>Team No. 2</div></div>
+                 <div id="teamresult"><div id="inputlabel1"><h3>Team No. 3</h3></div></div>
+                 <div id="teamresult"><div id="inputlabel1"><h3>Team No. 4</h3></div></div>
              </div>
         
-    <script src="Teammaker.js"></script>
+            </div>
+
+
+       
+        
+    
+    <script src="app.js"></script>
 </body>
 </html>
