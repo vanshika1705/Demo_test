@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ramdom Team Selector</title>
+        <link rel="stylesheet" href="Teammaker.css">
+        <meta name="viewport" content="width= device-width , initial-scale=1.0">
+    </head>
+    <body >
+        <div id=header>
+            <img src="headerbck.jpg" width="100%" height="100%">
+           <h1>Random Team Selector</h1>
+        </div>
+        <div class="navbar">
+            <input type="text" placeholder="Search.." name="Search">
+            <a href="index.html">Home</a>
+            <a href="#" onclick="reset();" >Reset</a>
+            <a href="#" class="themebtn"  >Dark Mode</a>
+            <a href="#">Contact Us</a>
+          
+    </div> 
+             <div id= participant class="rotate" >
+                <h2>Add Participant</h2>
+                <input  type="text" id="text" placeholder="participant's name">
+                <input type="button" class ="add" value="Add">
 
+             </div>
+            
+            <div id=chooseteam class="rotate">
+                 <img src="Buttonimage.png" id ="btnimage"> 
+       
+                </div> 
+                
+             <div id="team" class="rotate">
+                <h2>Add Team</h2>
+                <input  type="text" id="text" placeholder="Team Title">
+                <input type="button" class="add" value="Add">
+             </div>
+        
+    <script src="Teammaker.js"></script>
+</body>
+</html>
