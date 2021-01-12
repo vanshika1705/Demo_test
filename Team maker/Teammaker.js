@@ -24,6 +24,7 @@ function createpartlist()
 document.getElementsByClassName("add").click= function() 
 {
     let text = document.getElementById('text').value;
+    document.getElementByID(list_item);
     
 }
 
