@@ -1,9 +1,11 @@
 
 //participant list
 var list=[];
+var copyList=[];
 function add(){
     var name = document.getElementById("text").value ;
     list.push(name);
+    copyList.push(name);
 
     var ul=document.createElement("ul");
         ul.setAttribute("id","ulvalue");
@@ -17,6 +19,35 @@ function add(){
             
      document.getElementById("text").value="";
 }
+
+//this start function use for genrate team
+
+var listDisplay=[];
+var chunk;
+function onstart(){
+     for(var i=0;i<list.length;i++)
+     {
+         listDisplay.push(copyList.splice(Math.random()*(copyList.length-1),1).pop());
+     }
+     document.getElementById("randomelist").innerHTML=listDisplay + ""+list.length;
+
+     if(listDisplay.length%2==0){
+         chunk=listDisplay.length/2;
+     }
+
+     var d=listDisplay.slice(0,chunk);
+     var h=listDisplay.slice(chunk,chunk+listDisplay.length);
+
+     document.getElementById("randomelist").innerHTML=d;
+     document.getElementById("randomelist2").innerHTML=h; 
+
+
+
+}
+
+
+
+
 
 
 function reset() {
