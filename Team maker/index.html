@@ -30,7 +30,7 @@
             
             <div id=chooseteam class="rotate">
                     
-                    <button id="create" > <h2> 3. Generate Teams</h2></button><br>
+                    <button id="create" onclick="onstart()" > <h2> 3. Generate Teams</h2></button><br>
                     <span id="note">Scroll down for Results</span>
                 </div> 
                 
@@ -41,8 +41,14 @@
              </div>
              <div id="result" >
                  <div id="inputlabel"><h2>4. Assigned Teams</h2></div>
-                 <div id="teamresult"><div id="inputlabel1"><h3>Team No. 1</h3></div></div>
-                 <div id="teamresult"><div id="inputlabel1"><h3>Team No. 2</div></div>
+                 <div id="teamresult">
+                     <div id="inputlabel1"><h3>Team No. 1</h3></div>
+                     <div id="randomelist"></div>
+                 </div>
+                 <div id="teamresult">
+                     <div id="inputlabel1"><h3>Team No. 2</div>
+                     <div id="randomelist2"></div>
+                    </div>
                  <div id="teamresult"><div id="inputlabel1"><h3>Team No. 3</h3></div></div>
                  <div id="teamresult"><div id="inputlabel1"><h3>Team No. 4</h3></div></div>
              </div>
