@@ -23,34 +23,29 @@
       <div id="main">
              <div id= participant  >
                 <div id="inputlabel"> <h2 >1. Add Participant</h2></div>
-                <input  type="text" id="text" class="input" placeholder="Participant's name" onchange="add();">
-                <button id="add_btn" class ="add">Add</button>
+                <input  type="text" id="text" class="input" placeholder="Participant's name" onchange="add()">
+                <button id="add_btn" class ="add" onclick="add()" >Add</button>
                 <div id="ulList"></div>
              </div>
             
-            <div id=chooseteam class="rotate">
+            <div id=chooseteam>
                     
-                    <button id="create" onclick="onstart()" > <h2> 3. Generate Teams</h2></button><br>
+                    <button id="create" > <h2> 3. Generate Teams</h2></button><br>
                     <span id="note">Scroll down for Results</span>
                 </div> 
                 
-             <div id="team" class="rotate">
+             <div id="team">
                 <div id="inputlabel"> <h2 >2. Add Team</h2></div>
-                <input  type="text" class="input" placeholder="Team Title">
-                <input type="button" id="add_btn"  value="Add">
+                <input  type="text" id ="t_text" class="input" placeholder="Team Title" onchange="addteam()">
+                <input type="button" id="add_btn"  value="Add" onclick="addteam()">
+                <div id="ulList"></div>
              </div>
-             <div id="result" >
+             <div id="ParticipantTeamList" >
                  <div id="inputlabel"><h2>4. Assigned Teams</h2></div>
-                 <div id="teamresult">
-                     <div id="inputlabel1"><h3>Team No. 1</h3></div>
-                     <div id="randomelist"></div>
-                 </div>
-                 <div id="teamresult">
-                     <div id="inputlabel1"><h3>Team No. 2</div>
-                     <div id="randomelist2"></div>
-                    </div>
-                 <div id="teamresult"><div id="inputlabel1"><h3>Team No. 3</h3></div></div>
-                 <div id="teamresult"><div id="inputlabel1"><h3>Team No. 4</h3></div></div>
+                 <div id="teamresult"><div id="participantTeamListHead"><h3>Team No. 1</h3></div></div>
+                 <div id="teamresult"><div id="participantTeamListHead"><h3>Team No. 2</div></div>
+                 <div id="teamresult"><div id="participantTeamListHead"><h3>Team No. 3</h3></div></div>
+                 <div id="teamresult"><div id="participantTeamListHead"><h3>Team No. 4</h3></div></div>
              </div>
         
             </div>
@@ -58,6 +53,7 @@
 
        
         
+    
     <script src="Teammaker.js"></script>
 </body>
 </html>
