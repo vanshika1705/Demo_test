@@ -1,8 +1,11 @@
+ /* body style */
 body {
     width: 100%;
     height: 100%;
     background-color:#ffffff;
   }
+ /* Header style */
+
   #header {
       margin-top: 0px;
     margin-left: 45px;
@@ -11,9 +14,13 @@ body {
       width: 1430px;
     
   }
+
+/*contents font  */
   h2, h3, h4, h5, h6,li {
     font-family: 'Prata', serif;
    }
+
+ /*H1 in header  */
   h1{
       font-family: 'Lato', sans-serif;
       font-size:30;
@@ -27,13 +34,15 @@ body {
       padding-bottom: 50px;
    /* transform: translate(-50%, -50%);*/
   }
-
+ /* navigation Bar */
   div.navbar {
     display: flex;
     background-color: #537072;
     justify-content: flex-start;
    
  }
+
+/* Search in navigation Bar */
  .navbar>input{
      float: left;
      margin-left: 65px;
@@ -45,7 +54,7 @@ body {
     border: none;
     
 }
-  
+/* List of links in navigation Bar */  
    .navbar>a {
     text-align: center;
     padding: 4px 30px;
@@ -55,11 +64,13 @@ body {
     color: black;
    
   }
-  
+  /* Hover for List of links in navigation Bar */
    a:hover {
     
     color: rgb(255, 255, 255);
   }
+
+/* Parent division for other divisions in body */
 #main {
      
   margin-left: 45px;
@@ -69,6 +80,8 @@ body {
     width: 1430px;
   
 }
+
+/* Participant List container*/
 #participant
 {  float: left;
     width: 35%;
@@ -79,6 +92,8 @@ body {
     border-radius: 40px;
     background-color: #7a8683;
 }
+
+/* team List container*/
 #team
 {  float: right;
    width: 35%;
@@ -89,14 +104,15 @@ body {
    border-radius: 40px;
    background-color:#7a8683;
 }
+/* generate button and note container*/
 #chooseteam
 {
     float:left;
     width: auto;
-    padding: 10px;
-    
-   
+    padding: 10px;   
 }
+
+/* Generate team button*/
 #create{
     border: none;
     padding: 60px 10px;
@@ -105,12 +121,15 @@ body {
     background-color:#415d5f;
     color:white;
 }
+
+/* Hover for generate button*/
 #create:hover {
  
     background-color:#537072;
     color:black;
     border: none;
   }
+/* Note to scroll down*/
   #note{
     float:block;
     width: auto;
@@ -121,7 +140,7 @@ body {
     background-color:#7a8683;
     color:black;
   }
-  
+/* header division of participant, team, and result*/  
  #inputlabel{
     height:60px;
     margin:0px;
@@ -129,9 +148,10 @@ body {
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
     background-color: #2c4a52;
-    color:#ffffff
-    
+    color:#ffffff   
 }
+
+/* input text of participant, team*/
 .input
 {
 
@@ -141,8 +161,9 @@ body {
   float: left;
   font-size: 16px;
   border:none;
-
 }
+
+/* add button for participant and team list*/
 #add_btn
 {  
   padding: 5px;
@@ -162,6 +183,8 @@ body {
 #add_btn:hover {
   background-color:#537072;
 }
+
+/* unordered list in participant and team*/
 #ulList
 {
 
@@ -174,10 +197,10 @@ body {
   border:none;
   color:black;
   font-size: 18px;
- 
-
 }
-#result
+
+/* All ParticipantTeam List container*/
+#ParticipantTeamList
 {
     float: left;
     width: 93%;
@@ -188,6 +211,8 @@ body {
     border-radius: 40px;
     background-color: #7a8683;
 }
+
+/* each ParticipantTeam list container  */
 #teamresult
 {   float: left;
     min-width: 20%;
@@ -198,7 +223,8 @@ body {
     margin: 30px;
     
 }
-#inputlabel1{
+/* Header of each ParticipantTeam list */
+#participantTeamListHead{
     height:40px;
     margin:0px;
     padding:10px 20px;
