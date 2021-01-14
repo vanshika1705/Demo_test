@@ -3,24 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <title>Ramdom Team Selector</title>
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="main.css"> <!--Link Stylesheet-->
         <meta name="viewport" content="width= device-width , initial-scale=1.0">
     </head>
     <body >
-        <div id="header">
-            
+        <!--Header-->
+        <div id="header">            
            <h1>Random Team Selector</h1>
         </div>
         
+         <!--Navigation Bar-->
         <div class="navbar">
             <input type="text" placeholder="Search.." name="Search">
             <a href="index.html"><h2>Home</h2></a>
             <a href="#" onclick="reset();" ><h2>Reset</h2></a>
-           
-            <a href="#"><h2>Contact Us</h2> </a>
-          
+            <a href="#"><h2>Contact Us</h2> </a> 
       </div> 
+       <!--Parent container for participant, team and ParticipantTeamList-->
       <div id="main">
+
+            <!--ParticipantList container-->
              <div id= participant  >
                 <div id="inputlabel"> <h2 >1. Add Participant</h2></div>
                 <input  type="text" id="text" class="input" placeholder="Participant's name" onchange="add()">
@@ -28,18 +30,21 @@
                 <div id="ulList"></div>
              </div>
             
-            <div id=chooseteam>
-                    
+            <!--Generate Button and note container-->
+            <div id=chooseteam>              
                     <button id="create" > <h2> 3. Generate Teams</h2></button><br>
                     <span id="note">Scroll down for Results</span>
                 </div> 
-                
+            
+            <!--TeamList container-->
              <div id="team">
                 <div id="inputlabel"> <h2 >2. Add Team</h2></div>
                 <input  type="text" id ="t_text" class="input" placeholder="Team Title" onchange="addteam()">
                 <input type="button" id="add_btn"  value="Add" onclick="addteam()">
                 <div id="ulList"></div>
              </div>
+
+             <!--ParticipantTeamList container-->
              <div id="ParticipantTeamList" >
                  <div id="inputlabel"><h2>4. Assigned Teams</h2></div>
                  <div id="teamresult"><div id="participantTeamListHead"><h3>Team No. 1</h3></div></div>
@@ -49,11 +54,7 @@
              </div>
         
             </div>
-
-
-       
         
-    
-    <script src="Teammaker.js"></script>
+    <script src="Teammaker.js"></script>  <!--Link JavaScript-->
 </body>
 </html>
