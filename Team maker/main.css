@@ -11,7 +11,7 @@ body {
       width: 1430px;
     
   }
-  h2, h3, h4, h5, h6 {
+  h2, h3, h4, h5, h6,li {
     font-family: 'Prata', serif;
    }
   h1{
@@ -132,11 +132,11 @@ body {
     color:#ffffff
     
 }
-#input
+.input
 {
 
   width: 70%;
-  margin: 20px;
+  margin : 30px 0 10px 25px;
   padding: 5px;
   float: left;
   font-size: 16px;
@@ -144,7 +144,8 @@ body {
 
 }
 #add_btn
-{  padding: 5px;
+{  
+  padding: 5px;
   background: #d9d9d9;
   color: rgb(0, 0, 0);
   float: right;
@@ -153,13 +154,28 @@ body {
   cursor: pointer;
   transition: 0.3s;
   border-radius: 2px;
-  margin : 20px 20px 20px 0;
+  margin : 30px 25px 25px 0;
   width:15%;
   border: none;
   
 }
 #add_btn:hover {
   background-color:#537072;
+}
+#ulList
+{
+
+  width: 70%;
+ margin-top: 0;
+  margin: 0 20px 10px 20px;
+  padding: 5px;
+  float: left;
+  font-size: 16px;
+  border:none;
+  color:black;
+  font-size: 18px;
+ 
+
 }
 #result
 {
@@ -192,5 +208,4 @@ body {
     color:#ffffff;
     text-align: center;
 }
-
 
