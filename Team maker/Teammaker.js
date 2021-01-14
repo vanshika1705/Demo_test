@@ -1,6 +1,99 @@
 
 //Adding participant name in participant list
-var list=[];
+
+var participantList=[];
+
+function onparticipantList(){
+    var name = document.getElementById("text").value;
+    participantList.push(name);
+  
+    var ul=document.createElement("ul");
+        ul.setAttribute("id","ulvalue");
+            document.getElementById("ulList").appendChild(ul);
+            var li=document.createElement("li");
+            for(var k=0;k<participantList.length;k++){     
+
+                var y=document.createTextNode(participantList[k]);
+
+                console.log(participantList[k]);
+                console.log(y);
+            }
+            li.appendChild(y);
+            ul.appendChild(li); 
+            
+     document.getElementById("text").value="";
+     console.log(participantList);
+}
+
+// Add Team Title in Team List
+
+var teamList=[];
+function onteamList(){
+    var team=document.getElementById("teamText").value ;
+    teamList.push(team);
+
+    var ulteam=document.createElement("ul");
+        ulteam.setAttribute("id","teamvalue");
+            document.getElementById("ulTeamlist").appendChild(ulteam);
+            var liteam=document.createElement("li");
+
+            for(var i=0;i<teamList.length;i++){
+
+                var teams=document.createTextNode(teamList[i]);
+            }
+            liteam.appendChild(teams);
+            ulteam.appendChild(liteam); 
+            
+     document.getElementById("teamText").value="";
+}
+
+
+//this start function use for genrate team
+
+var randomelistDisplay=[];
+var splitList;
+function onstart(){
+    
+    
+    var lengthList=participantList.length;
+
+    for(var i=0;i<lengthList;i++){
+        var randomeNumber = Math.floor(Math.random()*participantList.length);
+
+        randomelistDisplay.push(participantList[randomeNumber]);
+        participantList.splice(randomeNumber,1);
+    }
+
+  
+    if(randomelistDisplay.length%2==0){
+
+        splitList=randomelistDisplay.length/2;
+    }
+    else{
+        splitList=randomelistDisplay.length/2;
+    }
+
+    var d = randomelistDisplay.slice(0,splitList).join("<br/>");
+    var k = randomelistDisplay.slice(splitList, splitList+randomelistDisplay.length).join("<br/>");
+
+    document.getElementById("randomelist").innerHTML=d;
+    document.getElementById("randomelist2").innerHTML=k; 
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*var list=[];
 //var copyList=[];
 function add(){
     var name = document.getElementById("text").value ;
@@ -41,7 +134,7 @@ function onAdd(){
             ulteam.appendChild(liteam); 
             
      document.getElementById("teamText").value="";
-}
+} 
 
 
 //this start function use for genrate team
@@ -67,7 +160,7 @@ function onstart(){
      let y = h.join(" <br> ");
      document.getElementById("partTeam1List").innerHTML=x;
      document.getElementById("partTeam2List").innerHTML=y; 
-}
+} */
 
 function reset() {
     location.reload();
