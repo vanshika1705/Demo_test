@@ -20,6 +20,28 @@ function add(){
      document.getElementById("text").value="";
 }
 
+
+// this function use for add team name
+
+var teamList=[];
+function onAdd(){
+    var team=document.getElementById("teamText").value ;
+    teamList.push(team);
+
+    var ulteam=document.createElement("ul");
+        ulteam.setAttribute("id","teamvalue");
+            document.getElementById("ulTeam").appendChild(ulteam);
+            for(var i=0;i<teamList.length;i++){
+                var liteam=document.createElement("li");
+                var y=document.createTextNode(teamList[i]);
+            }
+            liteam.appendChild(y);
+            ulteam.appendChild(liteam); 
+            
+     document.getElementById("teamText").value="";
+}
+
+
 //this start function use for genrate team
 
 var listDisplay=[];
