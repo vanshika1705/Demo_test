@@ -1,97 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ramdom Team Selector</title>
+        <link rel="stylesheet" href="main.css"> <!--Link Stylesheet-->
+        <meta name="viewport" content="width= device-width , initial-scale=1.0">
+    </head>
+    <body >
+        <!--Header-->
+        <div id="header">            
+           <h1>Random Team Selector</h1>
+        </div>
+        
+         <!--Navigation Bar-->
+        <div class="navbar">
+            <input type="text" placeholder="Search.." name="Search">
+            <a href="index.html"><h2>Home</h2></a>
+            <a href="#" onclick="reset();" ><h2>Reset</h2></a>
+            <a href="#"><h2>Contact Us</h2> </a> 
+      </div> 
+       <!--Parent container for participant, team and ParticipantTeamList-->
+      <div id="main">
 
-//participant list
-var list=[];
-var copyList=[];
-function add(){
-    var name = document.getElementById("text").value ;
-    list.push(name);
-    copyList.push(name);
-
-    var ul=document.createElement("ul");
-        ul.setAttribute("id","ulvalue");
-            document.getElementById("ulList").appendChild(ul);
-            for(var k=0;k<list.length;k++){
-                var li=document.createElement("li");
-                var y=document.createTextNode(list[k]);
-            }
-            li.appendChild(y);
-            ul.appendChild(li); 
+            <!--ParticipantList container-->
+             <div id= participant  >
+                <div id="inputlabel"> <h2 >1. Add Participant</h2></div>
+                <input  type="text" id="text" class="input" placeholder="Participant's name" onchange="add()">
+                <button id="add_btn" class ="add" onclick="add()" >Add</button>
+                <div id="ulList"></div>
+             </div>
             
-     document.getElementById("text").value="";
-}
-
-
-// this function use for add team name
-
-var teamList=[];
-function onAdd(){
-    var team=document.getElementById("teamText").value ;
-    teamList.push(team);
-
-    var ulteam=document.createElement("ul");
-        ulteam.setAttribute("id","teamvalue");
-            document.getElementById("ulTeam").appendChild(ulteam);
-            for(var i=0;i<teamList.length;i++){
-                var liteam=document.createElement("li");
-                var y=document.createTextNode(teamList[i]);
-            }
-            liteam.appendChild(y);
-            ulteam.appendChild(liteam); 
+            <!--Generate Button and note container-->
+            <div id=chooseteam>              
+                    <button id="create" onclick="onstart()"> <h2> 3. Generate Teams</h2></button><br>
+                    <span id="note">Scroll down for Results</span>
+                </div> 
             
-     document.getElementById("teamText").value="";
-}
+            <!--TeamList container-->
+             <div id="team">
+                <div id="inputlabel"> <h2 >2. Add Team</h2></div>
+                 <input  type="text" id="teamText" class="input" placeholder="Team Title" onchange="onAdd()">
+                 <input type="button" id="add_btn"  value="Add" onclick="addteam()">
+                 <div id="ulTeam"></div>
+             </div>
 
-
-//this start function use for genrate team
-
-var listDisplay=[];
-var chunk;
-function onstart(){
-     for(var i=0;i<list.length;i++)
-     {
-         listDisplay.push(copyList.splice(Math.random()*(copyList.length-1),1).pop());
-     }
-     document.getElementById("randomelist").innerHTML=listDisplay + ""+list.length;
-
-     if(listDisplay.length%2==0){
-         chunk=listDisplay.length/2;
-     }
-
-     var d=listDisplay.slice(0,chunk);
-     var h=listDisplay.slice(chunk,chunk+listDisplay.length);
-
-     document.getElementById("randomelist").innerHTML=d;
-     document.getElementById("randomelist2").innerHTML=h; 
-
-
-
-}
-
-
-
-
-
-
-function reset() {
-    location.reload();
-}
-/*
-var switcher = document.querySelector('.themebtn');
-switcher.addEventListener('click', function()
-{
-    document.body.classList.toggle('dark-theme');
-
-    var className = document.body.className;
-    if(className == "dark-theme") {
-        this.textContent = "Light mode";
-    }
-    else {
-        this.textContent = "Dark mode";
-    }
-    
-}
-)*/
-
+             <!--ParticipantTeamList container-->
+             <div id="ParticipantTeamList" >
+                 <div id="inputlabel"><h2>4. Assigned Teams</h2></div>
+                 <div id="teamresult">
+                     <div id="participantTeamListHead"><h3>Team No. 1</h3>
+                      <div id="partTeam1List" class="randomlist"></div>
+                     </div></div>
+                 <div id="teamresult">
+                     <div id="participantTeamListHead"><h3>Team No. 2<h3></div>
+                     <div id="partTeam2List" class="randomlist"></div>
+                  </div>
+                 <div id="teamresult"><div id="participantTeamListHead"><h3>Team No. 3</h3></div></div>
+                 <div id="teamresult"><div id="participantTeamListHead"><h3>Team No. 4</h3></div></div>
+             </div>
+        
+            </div>
+        
+    <script src="Teammaker.js"></script>  <!--Link JavaScript-->
+</body>
+</html>
 
 
 
