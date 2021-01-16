@@ -48,6 +48,36 @@ function onteamList(){
 }
 
 
+//this function use for create div tag with id
+var b=0;
+var m=1;
+var n=0;
+function divNumber(datalist){
+    var teamresult = document.createElement("div"); 
+    teamresult.setAttribute("id","teamresult");
+    document.getElementById('ParticipantTeamList').appendChild(teamresult);
+    var resHead = document.createElement("div");
+    resHead.setAttribute("id","participantTeamListHead");
+    var h3 = document.createElement("h3");
+    var res = document.createElement("div");
+        res.id=m;
+
+        var x = document.createTextNode(teamList[b]); // created node for teamList[]
+
+    h3.appendChild(x);                  // append it to the main division
+    resHead.appendChild(h3);
+    resHead.appendChild(res);
+    teamresult.appendChild(resHead);
+    b++;
+
+    var d=datalist.slice(n,n+splitList).join("<br/>");
+    n+=splitList;
+
+
+    return document.getElementById(m).innerHTML=d;
+
+}
+
 //this start function use for genrate team
 
 var randomelistDisplay=[];
@@ -64,20 +94,27 @@ function onstart(){
         participantList.splice(randomeNumber,1);
     }
 
-  
-    if(randomelistDisplay.length%2==0){
+     splitList=randomelistDisplay.length/teamList.length;
+    
+    
+   /* if(randomelistDisplay.length%2==0){
 
-        splitList=randomelistDisplay.length/2;
+        splitList=randomelistDisplay.length/teamList.length;
     }
     else{
-        splitList=randomelistDisplay.length/2;
-    }
+        splitList=randomelistDisplay.length/teamList.length;
+    } */
+    
+     for(var i=0;i<teamList.length;i++){
+            divNumber(randomelistDisplay);
+            m++;
+        } 
 
-    var d = randomelistDisplay.slice(0,splitList).join("<br/>");
-    var k = randomelistDisplay.slice(splitList, splitList+randomelistDisplay.length).join("<br/>");
+    //var d = randomelistDisplay.slice(0,splitList).join("<br/>");
+    //var k = randomelistDisplay.slice(splitList, splitList+randomelistDisplay.length).join("<br/>");
 
-    document.getElementById("randomelist").innerHTML=d;
-    document.getElementById("randomelist2").innerHTML=k; 
+    //document.getElementById("randomelist").innerHTML=d;
+    //document.getElementById("randomelist2").innerHTML=k; 
     
 }
 
