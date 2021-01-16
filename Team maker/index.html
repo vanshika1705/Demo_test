@@ -25,8 +25,8 @@
             <!--ParticipantList container-->
              <div id= participant  >
                 <div id="inputlabel"> <h2 >1. Add Participant</h2></div>
-                <input  type="text" id="text" class="input" placeholder="Participant's name" onchange="ParticipantList()">
-                <button id="add_btn" class ="add" onclick="ParticipantList()" >Add</button>
+                <input  type="text" id="text" class="input" placeholder="Participant's name" onchange="onparticipantList()">
+                <button id="add_btn" class ="add" onclick="onparticipantList()" >Add</button>
                 <div id="ulList"></div>
              </div>
             
@@ -39,8 +39,8 @@
             <!--TeamList container-->
              <div id="team">
                 <div id="inputlabel"> <h2 >2. Add Team</h2></div>
-                 <input  type="text" id="teamText" class="input" placeholder="Team Title" onchange="TeamList()">
-                 <input type="button" id="add_btn"  value="Add" onclick="TeamList()">
+                 <input  type="text" id="teamText" class="input" placeholder="Team Title" onchange="onteamList()">
+                 <input type="button" id="add_btn"  value="Add" onclick="onteamList()">
                  <div id="ulTeam"></div>
              </div>
 
