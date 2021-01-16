@@ -1,6 +1,3 @@
-
-
-
 //Adding participant name in participant list
 
 var participantList=[];
@@ -31,7 +28,6 @@ function onparticipantList(){
 
 var teamList=[];
 function onteamList(){
-
     var team=document.getElementById("teamText").value ;
     teamList.push(team);
 
@@ -45,15 +41,13 @@ function onteamList(){
                 var teams=document.createTextNode(teamList[i]);
             }
             liteam.appendChild(teams);
-            ulteam.appendChild(liteam);  
-
+            ulteam.appendChild(liteam); 
+            
      document.getElementById("teamText").value="";
-     
 }
 
 
 //this function use for create div tag with id
-
 var b=0;
 var m=1;
 var n=0;
@@ -67,9 +61,9 @@ function divNumber(datalist){
     var res = document.createElement("div");
         res.id=m;
 
-        var x = document.createTextNode(teamList[b]); // created node for teamList[]
+        var x = document.createTextNode(teamList[b]);
 
-    h3.appendChild(x);                  // append it to the main division
+    h3.appendChild(x);                  
     resHead.appendChild(h3);
     resHead.appendChild(res);
     teamresult.appendChild(resHead);
@@ -83,161 +77,32 @@ function divNumber(datalist){
 
 }
 
-//this start function use for genrate team
+//this start function is used to genrate team
 
 var randomelistDisplay=[];
-var g=[];
 var splitList;
 function onstart(){
     
-    var lengthList=participantList.length;
     
-    for(var i=0;i<lengthList;i++){
+    var lengthList=participantList.length;
 
+    for(var i=0;i<lengthList;i++){
         var randomeNumber = Math.floor(Math.random()*participantList.length);
+
         randomelistDisplay.push(participantList[randomeNumber]);
         participantList.splice(randomeNumber,1);
     }
 
-    document.getElementById("abc").innerHTML=randomelistDisplay;
+     splitList=randomelistDisplay.length/teamList.length;
     
-
-    splitList=randomelistDisplay.length/teamList.length;
-
-        
-        for(var i=0;i<teamList.length;i++){
+     for(var i=0;i<teamList.length;i++){
             divNumber(randomelistDisplay);
             m++;
         } 
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Adding participant name in participant list
-/*var list=[];
-function ParticipantList(){
-    var name = document.getElementById("text").value ;
-    list.push(name);
-    var ul=document.createElement("ul");
-        ul.setAttribute("id","ulvalue");
-            document.getElementById("ulList").appendChild(ul);
-            var li=document.createElement("li");
-        for(var k=0;k<list.length;k++){
-               
-               var y=document.createTextNode(list[k]);
-            }
-            li.appendChild(y);
-            ul.appendChild(li); 
-            
-     document.getElementById("text").value="";
-}
-
-
-// Add Team Title in Team List
-
-var teamList=[];
-function TeamList(){
-    var team=document.getElementById("teamText").value ;
-    teamList.push(team);
-
-    var ulteam=document.createElement("ul");
-        ulteam.setAttribute("id","teamvalue");
-            document.getElementById("ulTeam").appendChild(ulteam);
-            var liteam=document.createElement("li");
-           for(var i=0;i<teamList.length;i++){
-               var y=document.createTextNode(teamList[i]);
-                
-          }
-            liteam.appendChild(y);
-            ulteam.appendChild(liteam); 
-            
-     document.getElementById("teamText").value="";
-}
-
-
-//this start function use for genrate team
-
-var listDisplay=[];
-var chunk;
-function onstart(){
-     for(var i=0;i<list.length;i++)
-     {
-         
-        var listDisplay= list.sort( function sort(){return 0.5- Math.random()*(list.length)});
-        
-     }
-
-         chunk=listDisplay.length/2;
-
-     var d=listDisplay.slice(0,chunk);
-     var h=listDisplay.slice(chunk,chunk+listDisplay.length);
-     let x = d.join(" <br> ");
-     let y = h.join(" <br> ");
-     document.getElementById("partTeam1List").innerHTML=x;
-     document.getElementById("partTeam2List").innerHTML=y; 
-
-
-
-} */
-
-
-
-
 
 
 function reset() {
     location.reload();
 }
-/*
-var switcher = document.querySelector('.themebtn');
-switcher.addEventListener('click', function()
-{
-    document.body.classList.toggle('dark-theme');
-
-    var className = document.body.className;
-    if(className == "dark-theme") {
-        this.textContent = "Light mode";
-    }
-    else {
-        this.textContent = "Dark mode";
-    }
-    
-}
-)*/
-
-
-
