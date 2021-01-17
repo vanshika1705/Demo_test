@@ -1,9 +1,14 @@
+
 //Adding participant name in participant list
 
 var participantList=[];
 
 function onparticipantList(){
     var name = document.getElementById("text").value;
+    if(name== "")
+    { alert("Please Enter a valid input");}
+    else
+    {
     participantList.push(name);
   
     var ul=document.createElement("ul");
@@ -22,6 +27,7 @@ function onparticipantList(){
             
      document.getElementById("text").value="";
      console.log(participantList);
+    }
 }
 
 // Add Team Title in Team List
@@ -29,6 +35,10 @@ function onparticipantList(){
 var teamList=[];
 function onteamList(){
     var team=document.getElementById("teamText").value ;
+    if(team == "")
+    { alert("Please Enter a valid Input");}
+    else
+    {
     teamList.push(team);
 
     var ulteam=document.createElement("ul");
@@ -45,6 +55,7 @@ function onteamList(){
             
      document.getElementById("teamText").value="";
 }
+}
 
 
 //this function use for create div tag with id
@@ -60,7 +71,6 @@ function divNumber(datalist){
     var h3 = document.createElement("h3");
     var res = document.createElement("div");
         res.id=m;
-
         var x = document.createTextNode(teamList[b]);
 
     h3.appendChild(x);                  
@@ -71,7 +81,6 @@ function divNumber(datalist){
 
     var d=datalist.slice(n,n+splitList).join("<br/>");
     n+=splitList;
-
 
     return document.getElementById(m).innerHTML=d;
 
@@ -106,3 +115,7 @@ function onstart(){
 function reset() {
     location.reload();
 }
+
+
+
+
