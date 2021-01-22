@@ -3,52 +3,122 @@
     <head>
         <meta charset="UTF-8">
         <title>Ramdom Team Selector</title>
-        <link rel="stylesheet" href="main.css"> <!--Link Stylesheet-->
+        <link rel="stylesheet" href="teamaker.css"> <!--Link Stylesheet-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--Icons-->
         <meta name="viewport" content="width= device-width , initial-scale=1.0">
     </head>
-    <body >
+    <body  >
         <!--Header-->
-        <div id="header">            
-           <h1>Random Team Selector</h1>
-        </div>
-        
-         <!--Navigation Bar-->
-        <div class="navbar">
-            <input type="text" placeholder="Search.." name="Search">
-            <a href="index.html"><h2>Home</h2></a>
-            <a href="#" onclick="reset();" ><h2>Reset</h2></a>
-            <a href="#"><h2>Contact Us</h2> </a> 
-      </div> 
-       <!--Parent container for participant, team and ParticipantTeamList-->
-      <div id="main">
+        <header class="header">
+          <div class="overlay has-fade"></div>
+          <nav class="container flex jc-sb ai-c" >
+            <a href="/" class="header_logo">         
+           <img src="logo.png" alt="Random Team Maker"/>
+            </a>
 
-            <!--ParticipantList container-->
-             <div id= participant  >
-                <div id="inputlabel"> <h2 >1. Add Participant</h2></div>
-                <input  type="text" id="text" class="input" placeholder="Participant's name" onchange="onparticipantList()">
-                <button id="add_btn" class ="add" onclick="onparticipantList()" >Add</button>
-                <div id="ulList"></div>
-             </div>
-            
-            <!--Generate Button and note container-->
-            <div id=chooseteam>              
-                    <button id="create" onclick="onstart()"> <h2> 3. Generate Teams</h2></button><br>
-                    <span id="note">Scroll down for Results</span>
-                </div> 
-            
-            <!--TeamList container-->
-             <div id="team">
-                <div id="inputlabel"> <h2 >2. Add Team</h2></div>
-                 <input  type="text" id="teamText" class="input" placeholder="Team Title" onchange="onteamList()">
-                 <input type="button" id="add_btn"  value="Add" onclick="onteamList()">
-                 <div id="ulTeamlist"></div>
-             </div>
-
-             <!--ParticipantTeamList container-->
-             <div id="ParticipantTeamList" >
-                 <div id="inputlabel"><h2>4. Assigned Teams</h2></div>
+            <a href="#" id="btnHamburger" class="header_toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a> 
+            <div class="header_links">
+                <a href="#">Home</a><a href="#">About</a><a href="#">Reset</a><a href="#">Contact Us</a>
+               
             </div>
+          </nav>
+          <div class="header__menu has-fade">
+          <a href="">Home</a>
+          <a href="">About</a>
+          <a href="">Reset</a>
+          <a href="">Contact Us</a>
+       
+        </div>
+    
+      </header>
+      <section class="firstsection">
+        <div class="startbtn">
+          <a href="#mainsection" class="button" >Start </a>
+        </div>
+        <img src="corner.png">
         
-    <script src="Teammaker.js"></script>  <!--Link JavaScript-->
-</body>
+      </section>
+
+      <section class="main flex jc-sa ai-c flow container" id="mainsection">
+      <!--ParticipantList container-->
+        <div id= participant  >
+        <div id="inputlabel"> <h2 >1. Add Participant</h2></div>
+        <input  type="text" id="text" class="input" placeholder="Participant's name" onchange="onparticipantList()">
+        <button id="add_btn" class ="add" onclick="onparticipantList()" >Add</button>
+        <div id="ulList"></div>
+
+     </div>
+
+      <!--Generate Button and note container-->
+     <div id=chooseteam>              
+      <button id="create" onclick="onstart()"><a href="#ParticipantTeamList"><h2> 3. Generate Teams</h2></a></button><br>
+     <!-- <span id="note">Scroll down for Results</span>-->
+  </div>
+
+    <!--teamList container-->
+  <div id="team">
+    <div id="inputlabel"> <h2 >2. Add Team</h2></div>
+     <input  type="text" id="teamText" class="input" placeholder="Team Title" onchange="onteamList()">
+     <input type="button" id="add_btn"  value="Add" onclick="onteamList()">
+     <div id="ulTeamlist"></div>
+ </div>
+</section>
+    <!--ParticipantTeamList container-->
+    <section class="PTsection container">
+    <div id="ParticipantTeamList" class= "flex jc-sa flow" >
+      <div id="inputlabel"><h2>4. Assigned Teams</h2></div>
+
+    </div>
+            
+  </section>
+</div>
+</a>
+
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div>
+  <a class="footer__logo" href="#">
+      <img src="logo.png" />
+    </a>
+<div class="footer__social">
+      <!-- Add font awesome icons -->
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-pinterest"></a>  
+      </div>
+
+    <div class="footer__links col1">
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">Blog</a>
+    </div>
+
+    <div class="footer__links col2">
+      <a href="#">Careers</a>
+      <a href="#">Support</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="footer__copyright">
+   
+      &copy; Random Team Maker.
+      All Rights Reserved.
+           
+    </div>
+
+</div>    
+</footer>
+        <script src="script.js"></script>
+        <script src="Teammaker.js"></script>
+   </body>
 </html>
