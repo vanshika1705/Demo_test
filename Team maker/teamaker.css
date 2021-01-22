@@ -1,0 +1,440 @@
+
+.has-fade {
+    visibility: hidden;
+  }
+  
+
+  
+  @keyframes fade-in {
+    from {
+      visibility: hidden;
+      opacity: 0;
+    }
+    1% {
+      visibility: visible;
+      opacity: 0;
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  
+  .fade-in {
+   
+            animation: fade-in 200ms ease-in-out forwards;
+  }
+
+  
+  @keyframes fade-out {
+    from {
+      visibility: visible;
+      opacity: 1;
+    }
+    99% {
+      visibility: visible;
+      opacity: 0;
+    }
+    to {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+  
+  .fade-out {
+   
+  animation: fade-out 200ms ease-in-out forwards;
+  }
+  
+html{
+    font-size: 100%;
+    box-sizing: border-box;
+    
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+body{
+    margin:0;
+    padding: 0;
+    font-family: serif;
+    line-height: 1.3;
+    overflow-x: hidden;
+    font-size: var(--font-med);
+    color: var(--gray);
+
+}
+a{
+    position: relative;
+    color: var(--gray);
+    transition: color 300ms ease-in-out;
+}
+
+
+.header_links>a:not(:last-child)
+{
+    margin-right: 32px;
+}
+
+.header__menu {
+    position: absolute;
+    width: calc(100% - 3rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    margin-top: 1.5rem;
+    padding: 1.625rem;
+    border-radius: 5px;
+  }
+.header__menu a {
+    display: block;
+    padding: 0.625rem;
+    color: #2d314d;
+    text-align: center;
+  }
+.header_links a::before{
+    content: "";
+    display: block;
+    color:#4e5c58;
+    height: 5px;
+    left:0;
+    right:0;
+    bottom:-48px;
+    position: absolute;
+    background: var(--pink);
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+}
+a:hover{
+color: var(--darkblue);
+}
+.header_links>a:hover::before
+{
+    
+    opacity:1;
+   
+}
+a,a:visited,a:hover{
+    text-decoration: none;
+    
+}
+.header {
+    position: relative;
+  }
+  
+.container{
+ 
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+nav{    
+    position: relative;
+        background-color: var(--white);
+       padding-top: 1.0625rem;
+       padding-bottom: 1.0625rem;   
+    } 
+
+
+.header_toggle>span{
+    display: block;
+    width: 26px;
+    height: 3px;
+    background-color: var(--blue);
+    transition:all 300 ms ease-in-out;
+    transform-origin: 2px 2px;
+    
+}
+.header .header_toggle>span:not(:last-child)
+{
+    margin-bottom: 5px;
+}
+.header.open .header_toggle>span:first-child{
+    transform: rotate(45deg);
+}
+.header.open .header_toggle>span:nth-child(2){
+    opacity: 0;
+}
+.header.open .header_toggle>span:last-child{
+    transform: rotate(-45deg);
+}
+
+.startbtn>a.button {
+    position: absolute;
+    display: inline-block;
+    padding: 0.875rem 2.1875rem;
+    margin-left: 10rem;
+    margin-top: 20rem;
+    background:var(--blue);
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    color: white;
+    font-weight: 400;
+    font-size: 0.875rem;
+    transition: opacity 300ms ease-in-out;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+ .startbtn>a.button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.25);
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+  
+ .startbtn>a.button:hover::before {
+    opacity: 1;
+  }
+  
+  .firstsection{
+
+    background-color: #fafafa;
+    min-height: 500px;
+}
+.firstsection>img {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 20rem;
+    
+  }
+ .main,.PTsection{
+     
+     background-color:var(--light--gray);
+     padding-top: 50px;
+    justify-content: center;
+
+ }
+
+ .main>#participant,#team{
+    flex-basis: 35%;
+    min-width: 400px;
+    min-height: 500px;
+    border-radius: 40px;
+    background-color: #d9d9d9;
+ }
+ 
+/* Generate team button*/
+#chooseteam>#create{
+    border: none;
+    padding: 20px 10px;
+    border-radius: 5px;
+    margin: 25px;
+    background:var(--blue);
+    color:white;
+}
+#create>a{
+  color:white;
+}
+
+/* Hover for generate button*/
+#chooseteam>#create:hover {
+ 
+    background-color:var(--pink);
+    color:var(--darkblue);
+    outline: none;
+    cursor: pointer;
+  }
+ .main #chooseteam{
+    padding: 10px; 
+   flex-basis: 30px;
+ }
+
+ #chooseteam> #note{
+    width: auto;
+    border-radius: 0px;
+    margin: 410px 25px 25px 45px;
+    padding: 5px 5px;
+    border: none;
+    background-color:#7a8683;
+    color:black;
+  }
+ #inputlabel{
+        height:80px;
+        margin:0px;
+        padding:10px 20px;
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+        background: linear-gradient(to top,var(--pink),var(--blue));
+        color : #ffffff;  
+    }
+    .input
+    {
+    
+      width: 70%;
+      margin : 30px 0 10px 25px;
+      padding: 5px;
+      float: left;
+      font-size: 16px;
+      border:none;
+      outline: none;
+    }
+ 
+.main #add_btn
+    {  
+      padding: 5px;
+      background:var(--blue);
+      color: #ffffff;
+      float: right;
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      border-radius: 2px;
+      margin : 30px 25px 25px 0;
+      width:15%;
+      border: none;
+      
+    }
+#add_btn:hover {
+        background-color:var(--darkblue);
+      }
+#ulList,#ulTeamlist
+{
+
+  width: 70%;
+ margin-top: 0;
+  margin: 0 20px 10px 20px;
+  padding: 5px;
+  float: left;
+  font-size: 16px;
+  border:none;
+  color:black;
+  font-size: 18px;
+}
+/* All ParticipantTeam List container*/
+
+.PTsection>#ParticipantTeamList
+{ 
+    min-width: 400px;
+    margin-top: 100px;
+    height:auto;
+    min-height:20rem;
+    padding: 0px;
+    border-radius: 40px;
+    background-color:#d9d9d9;
+    margin-bottom: 15rem;
+    
+}
+#ParticipantTeamList>#inputlabel
+{
+  min-width: 100%;
+}
+
+/* each ParticipantTeam list container  */
+#teamresult
+
+{ 
+    min-width: 12rem;
+    min-height: 200px;
+    padding: 0;
+    border-radius: 40px;
+    background-color:var(--light--gray);
+    margin: 30px;
+    color:var(--darkblue);
+ 
+
+    
+
+}
+/* Header of each ParticipantTeam list */
+#participantTeamListHead{
+    height:60px;
+    margin:0px;
+    padding:10px 20px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    background-color:var(--blue);
+    columns: #000000;;
+    text-align: center;
+    
+}
+h3{
+  color:white;
+  margin: 10px;
+  
+}
+
+.footer{
+  background-color: var(--darkblue);
+  text-align: center;
+  color: white;
+  padding:15px;
+}
+.fa:hover,.footer__links>a:hover {
+  opacity: 0.8;
+  color:grey;
+}
+
+.fa,.footer__links>a{
+  color:white;
+  text-align: center;
+  padding: 0 10px;
+
+}
+
+
+.flex{
+    display: flex;
+
+}
+    .flex.jc-sb{
+        justify-content: space-between;
+    }
+
+    .flex.jc-c{
+        justify-content: center;
+    }
+
+    .flex.ai-c{
+        align-items: center;
+    }
+    .flex.jc-sa{
+      justify-content: space-around;
+    }
+    .flex.flow{
+      flex-flow: wrap;
+    }
+    .overlay {
+       
+        opacity: 0;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background-image: linear-gradient(#2d314d, transparent);
+      }
+/* desktop view*/
+@media screen and (min-width: 64em) {
+    .header_toggle{
+        display: none;
+    }
+
+}
+
+  /* mobile view*/  
+    @media screen and (max-width: 64em) {
+        .header_links{
+            display: none;
+        }
+    }
+
+/*colors*/
+:root{
+    --darkblue:hsl(233,26%,24%);
+    --white:hsl(0,0,100%) ;
+    --pink:#cc2b5e;
+    --blue:#753a88;
+    --light--gray: hsl(220, 16%, 96%);
+    --gray:hsl(233,8%,62%);
+    --font-sm:0.875rem;   /*14px*/
+    --font-med:1.125rem;   /*18px*/
+
+}
