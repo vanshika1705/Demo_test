@@ -1,39 +1,37 @@
 // openForm function use for the open form
+
 function openForm(){
     document.getElementById("containerid").style.display="block";
   }
 
-// this function use for validation of input text 
   
   function validationForm(){
-      var x= document.getElementById("firstname").value ;
+    var x= document.getElementById("firstname").value ;
 
-      if(!isNaN(x)){
-          alert("Enter alphabetic charecter");
-      }
-     
-  }
+    if(!isNaN(x)){
+        alert("Enter alphabetic charecter");
+    }
+   
+}
 
-  // this function use for validation last name input text 
 
-  function lastnameValidation(){
-       var y=document.getElementById("lastname").value
-       if(!isNaN(y)){
-           alert("Enter alphabetic charecter");
-       }
-  }
+function lastnameValidation(){
+     var y=document.getElementById("lastname").value
+     if(!isNaN(y)){
+         alert("Enter alphabetic charecter");
+     }
+}
 
-//oncloseform use for close form
 function onCloseform(){
 
     document.getElementById("containerid").style.display="none";
 
 }
-function claculateAge(){
 
-
-}
 // this function use for Age calculate 
+var i=0;
+var j=1;
+var k=2;
 function dateCalculate(){
 
     var d=new Date();
@@ -43,13 +41,13 @@ function dateCalculate(){
     var tYear=d.getFullYear();
 
     var a= date.split("-");
-    var datevalue=tYear-a[0];
+    var datevalue=tYear-a[i];
 
-    if(tMonth < (a[1]-1)){
+    if(tMonth < (a[j]-1)){
      document.getElementById("age").value=datevalue--;
     }
 
-    if(((a[1]-1)==tMonth) && (tDate<a[2])){
+    if(((a[j]-1)==tMonth) && (tDate<a[k])){
         document.getElementById("age").value=datevalue--;
     }
         
@@ -59,12 +57,108 @@ function dateCalculate(){
     document.getElementById("age").value=datevalue;
 }
 
-// skill data show the skill and experties value and display in 
 
-var dataskill;
-var dataExpert;
+
+var participant=[];
+var b=0;
+var projectList=[];
+    document.querySelector("form button").addEventListener("click",function(event){
+
+        var participentdata=document.querySelectorAll("form input");
+        var participantTeam={};
+
+        for(var i=0;i<participentdata.length;i++){
+            participantTeam[participentdata[i].name]=participentdata[i].value;
+            participentdata.value=" ";
+        }
+
+        participant.push(participantTeam);
+
+        projectList.push(participant.map(item=>item.project));
+        document.getElementById("displaydata").innerHTML=projectList;
+
+
+        var jsonformat=JSON.stringify(participantTeam);
+        console.log(jsonformat);
+        event.preventDefault();
+        saveData();
+        console.log(participant);
+
+    },false)
+
+    function saveData(){
+ 
+        document.getElementById("firstname").value="";
+        document.getElementById("lastname").value="";
+        document.getElementById("skillId").value="";
+        document.getElementById("age").value="";
+        document.getElementById("experience").value="";
+        document.getElementById("dateform").value="";
+        document.getElementById("expertiesId").value="";
+        document.getElementById("projectId").value="";
+   
+        console.log("hello world");
+    }
+
 var m=0;
-function skillData(){
+var e=[];
+var skill;
+function addSkill(){
+
+    var row=document.getElementById("rowadd");
+        var div=document.createElement("div");
+        div.className="input-field col s3";
+        div.id=m;
+        row.appendChild(div);
+
+        var skillData={};
+        var inputs=document.querySelector("form #skillId");
+        skillData[inputs.name]=inputs.value;
+
+        var experties=document.querySelector("form #expertiesId");
+        skillData[experties.name]=experties.value;
+
+        e.push(skillData);
+        console.log(e);
+        
+        skill=e.map(item=>item.skill);
+
+        document.getElementById(m).innerHTML=skill;
+        console.log(skill);
+
+}
+
+
+
+
+
+// skill object
+/*
+var e=[];
+    function skillInput(){
+          m++;
+    
+        var datavalue={};
+        
+         var inputs=document.querySelectorAll("form .skillclass");
+        for(var n=0;n<inputs.length;n++){
+    
+            datavalue[inputs[n].name]=inputs[n].value;
+        }
+        //datavalue[inputs.name]=inputs.value;
+    
+        e.push(datavalue);
+    
+        console.log(e);
+        var m=JSON.stringify(e);
+        
+    
+       // document.getElementById("skilldata").innerHTML=dataskill
+    
+     }
+
+     var m=0;
+     function skillData(){
 
         var row=document.getElementById("rowadd");
         var div=document.createElement("div");
@@ -72,26 +166,11 @@ function skillData(){
         div.id=m;
         row.appendChild(div);
 
-  document.getElementById(m).innerHTML= dataskill +" : "+dataExpert;
-  document.getElementById("skill").value="";
-  document.getElementById("experties").value="";
-}
- function skillInput(){
-     dataskill=document.getElementById("skill").value;
-     dataExpert=document.getElementById("experties").value
-      m++;
+        var skill=e.map(item=>item.skill);
+        var experties=e.map(item=>item.Experties);
 
-   // document.getElementById("skilldata").innerHTML=dataskill
-
- }
-
-
-var participentdata=[{
-    name :"ABC",
-    last :"jkl"
-}] 
-
-console.log(JSON.stringify(participentdata));
-console.log(participentdata);
-
-
+  document.getElementById(m).innerHTML= skill+" : "+experties;
+  //document.getElementById("skillId").value="";
+  //document.getElementById("experties").value="";
+  
+}*/
