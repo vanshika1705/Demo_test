@@ -16,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <!-- Compiled and minified JavaScript -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+  
 
         <meta name="viewport" content="width= device-width , initial-scale=1.0">
     </head>
@@ -77,7 +77,7 @@
         <br>
     
       
-              <form class="col s12">
+              <form id="form" class="col s12">
                 <div class="input-field">
                   <i class="small material-icons">image</i>
                   <input id="default-btn" type="file" width="100%">
@@ -88,25 +88,28 @@
     
                 <div class="row">
                   <div class="input-field col s6">
-                    <input type="text" id="firstname" placeholder="Enter  Name" class="validate" onchange="validationForm()" required>
+                    <input type="text" id="firstname" placeholder="Enter  Name" name="fname" class="validate" onchange="validationForm()" required>
                     <label for="first-name">First Name</label>
                   </div>
     
                   <div class="input-field col s6">
-                    <input type="text" id="lastname" placeholder="Enter Name" class="validate" onchange="lastnameValidation()" required>
+                    <input type="text" id="lastname" placeholder="Enter Name" name="lname" class="validate" onchange="lastnameValidation()" required>
                     <label for="last-name">Last Name</label>
                   </div>
     
                 </div>
-    
+                <div class="input-field">
+                  <input type="text" placeholder="Add Job Profile"  id="profile" name="profile" class="validate" required>
+                   <label for="profile">Job Profile</label>
+                </div>
               <div class="row">
                 <div class="input-field col s6">
-                  <input type="date" id="dateform" placeholder="Enter DOB" class="validate" max="2021-12-31" oninput="dateCalculate()" required>
+                  <input type="date" id="dateform" placeholder="Enter DOB" name="dob" class="validate" max="2021-12-31" oninput="dateCalculate()" required>
                   <label for="dob">DOB</label>
                 </div>
     
                 <div class="input-field col s6">
-                  <input type="text" id="age" placeholder="Age" class="validate" required>
+                  <input type="text" id="age" placeholder="Age" name="age" class="validate" required>
                   <label for="Agedata">Age</label>
                 </div>
     
@@ -115,12 +118,12 @@
     
               <div class="row">
                 <div class="input-field col s6">
-                  <input type="number" id="experience" placeholder="Enter Experience" class="validate" min="0" required>
+                  <input type="number" id="experience" placeholder="Enter Experience" name="exp" class="validate" min="0" required>
                   <label for="Experience">Experience</label>
                 </div>
     
                 <div class="input-field col s6">
-                  <input type="text" id="project" placeholder="Enter Project" class="validate" required>
+                  <input type="text" id="project" placeholder="Enter Project" class="validate" name="project" required>
                  
                   <label for="projectdata">Project</label>
                 </div>
@@ -130,20 +133,20 @@
     
               <div class="row">
                 <div class="input-field col s4">
-                    <input type="text" placeholder="skill" id="skill" class="validate" onchange=skillInput() required>
+                    <input type="text" placeholder="skill" id="skill" class="validate" name="skill" onchange=skillInput() required>
                     <label for="skill">Skill</label>
                  </div>   
     
                  <div class="input-field col s4">
-                   <input type="text" placeholder="Experties"  id="experties" class="validate" onchange="skillInput()" required>
+                   <input type="text" placeholder="Experties"  id="experties" name="Expertise" class="validate" onchange="skillInput()" required>
                    <label for="experties">Experties</label>
                  </div>
     
                  <div class="input-field col s4">
-                  <a class="btn-floating btn-medium wave-effect waves-light gray" onclick="skillData()"><i class="material-icons">add</i></a>
+                  <a class="btn-floating btn-medium wave-effect waves-light gray" onclick="addskill()"><i class="material-icons">add</i></a>
                  </div>
               </div>
-    
+                
     
     
               <div class="row" id="rowadd">
@@ -155,8 +158,7 @@
     
                  <div class="row right" id="buttonid">
                   <div class="input-field col s12">
-                   <button type="Submit" class="btn wave-effect waves-light" onclick="cardDisplay()">Submit</button>
-        
+                   <input type="submit" class="btn wave-effect waves-light" value="Submit">
                     <button type="reset" class="btn wave-effect waves-light">Reset</button>
                     
                    </div>
@@ -177,12 +179,12 @@
        <!--ParticipantList container-->
         <div id= "participant">
         <div id="inputlabel" class="flex flow ai-c"> 
-        <span class="span"><h5><b>1. Add Participant</b></h5></span>
+        <span class="span"><h5><b> Add Participant</b></h5></span>
        <!-- <input  type="text" id="text" class="input" placeholder="Participant's name" onchange="onparticipantList()">-->
        <a href="#profile" class="btn right modal-trigger"><i class="material-icons">add</i></a>
         </div>
        
-       <div class="card_list flex overflow">
+       <div class="card_list flex overflow" id="cardlistid">
          <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" src="image1.jpg">
@@ -192,7 +194,7 @@
               <span id="jobprofile">Frontend Developer</span>
             </div>
             <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+              <span class="card-title grey-text text-darken-4">Samiksha<i class="material-icons right">close</i></span>
               
                 
                 <span id="date">Date: 17/05/2000</span><br>
@@ -201,6 +203,8 @@
 
              
             </div>
+
+
           </div> 
       <!--
           <div class="card">
@@ -268,14 +272,14 @@
       <!--Generate Button and note container-->
     <div id=chooseteam class="flex flow">              
      <!-- <button id="create" onclick="onstart()"><a href="#ParticipantTeamList"><h2> 3. Generate Team by</h2></a></button><br>-->
-      <h5><b>2. Generate Team by:</b></h5><br>
+      <h5><b> Generate Team by:</b></h5><br>
       
       <label class="radio" for="projects">
-        <input type="radio" id="projects" name="filter">Project</label>
+        <input type="radio" id="projects" name="filter">    Project</label>
         <label class="radio" for="skills">
-      <input type="radio" id="skills" name="filter">Skills</label>
+      <input type="radio" id="skills" name="filter">    Skills</label>
       <label class="radio" for="level">
-      <input type="radio" id="level" name="filter">Expertise</label><br>
+      <input type="radio" id="level" name="filter">    Expertise</label><br>
       
     <!-- <span id="note">Scroll down for Results</span>-->
   </div>  
@@ -291,7 +295,7 @@
     <!--ParticipantTeamList container-->
     <section class="PTsection flex jc-sa container1">
     <div id="ParticipantTeamList" class= "flex jc-sa flow" >
-      <div id="inputlabel"><h5><b>3. Assigned Teams</b></h5></div>
+      <div id="inputlabel"><h5><b> Assigned Teams</b></h5></div>
 
     </div>
             
@@ -307,7 +311,7 @@
 <div class="container">
 <div>
   <a class="footer__logo" href="#">
-      <img src="logo.png" />
+      <img src="lightlogo.png" />
     </a>
 <div class="footer__social">
       <!-- Add font awesome icons -->
