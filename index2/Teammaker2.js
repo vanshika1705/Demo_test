@@ -89,28 +89,18 @@ function reset() {
 
 */
 
+var a=1;
+var b=0;
+function fetchcontent(content)
+{
 
-fetch("team.json")
+fetch(content)
     .then((response)=>{
         return response.json();
     })
     .then((data)=>{
-        console.log(data);
-
-      
-    })
-    
-    for(i=0;i<data.participant.length;i++)
-    {
-        cardDisplay(data);
-        a++;
-    }
-
-var a=1;
-var b=0;
-function cardDisplay(card)
-{
-    var list= document.getElementsByClassName("card_list");
+   //  console.log(data);
+    var list= document.getElementById("cardlistid");
     var card= document.createElement("div");
     card.className="card";
     var cardimg= document.createElement("div");
@@ -128,40 +118,53 @@ function cardDisplay(card)
     reveal.className="card-reveal";
     var rtitle= document.createElement("span");
     rtitle.className="card-title grey-text text-darken-4";
+    var icon= document.createElement("i");
+    icon.className="material-icons right";
     var date=document.createElement("span");
     date.id="date";
     var project=document.createElement("span");
     project.id="project";
-    var skills=document.createElement("span");
-    skills.id="skills";
-    var br=document.createElement("br");
-        img.src=data.participant[b].picture;
+    var skil=document.createElement("span");
+    skil.id="skills";
+    
+    
+    img.src=data.participant[b].picture;
     cardimg.appendChild(img);
-    var x = document.createTextNode(data.participant[b].name);
-    var y = document.createTextNode(data.participant[b].profile);
-    title.appendChild(x);
-    profile.appendChild(y);
+    title.innerHTML=data.participant[b].name.first + " "+data.participant[b].name.last ;
+    profile.innerHTML=data.participant[b].profile;
+    rtitle.innerHTML=data.participant[b].name.first;
+    icon.innerHTML="close";
+    date.innerHTML="Date: "+ data.participant[b].dob;
+    project.innerHTML="<br/>Projects: " + data.participant[b].project;
+    
+   skil.innerHTML="<br/>Skills: ";
+   var i=0;
+        for(i in data.participant[b].skills)
+        {   var s = document.createElement("span");
+            s.innerHTML=data.participant[b].skills[i].skill+",";
+            skil.appendChild(s);
+            
+        }
+       
     cardcontent.appendChild(title);
     cardcontent.appendChild(profile);
-    rtitle.appendChild(x);
-    var z = document.createTextNode(data.participant[b].dob);
-    var k= document.createTextNode(data.participant[b].project);
-    var w = document.createTextNode(data.participant[b].skills);
-    date.appendChild(z);
-    project.appendChild(k);
-    skills.appendChild(w);
+    rtitle.appendChild(icon);
+    reveal.appendChild(rtitle);
     reveal.appendChild(date);
-    reveal.appendChild(dproject);
-    reveal.appendChild(skills);
+    reveal.appendChild(project);
+    reveal.appendChild(skil);
     card.appendChild(cardimg);
     card.appendChild(cardcontent);
     card.appendChild(reveal);
     list.appendChild(card);
     b++;
     
-
-
+      
+    })
 }
-
+for(let i= 0; i<5;i++)
+{
+    fetchcontent("team.json");
+}
 
 
