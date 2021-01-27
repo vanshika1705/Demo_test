@@ -57,8 +57,8 @@ function dateCalculate(){
         document.getElementById("age").value=datevalue--;
     }
         
-    console.log(date);
-    console.log(a[0]);
+    //console.log(date);
+   // console.log(a[0]);
 
     document.getElementById("age").value=datevalue;
 }
@@ -98,3 +98,28 @@ var participentdata=[{
 console.log(JSON.stringify(participentdata));
 console.log(participentdata);
 */
+
+
+const formdiv= document.querySelector('.modal-content'),
+    form = formdiv.querySelectorAll('#form'),
+    submitInput = form[0].querySelector('input[type="submit"]');
+
+    function getformdata(e)
+    {
+        e.preventDefault();
+        var formdata = new FormData(form[0]);
+    
+        var fname=formdata.get('fname');    
+        var lname = formdata.get('lname');
+      
+        console.log(fname);
+        console.log(lname);
+        
+        
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+        submitInput.addEventListener('click',getformdata,false);
+        
+    },false);
+
+    
