@@ -80,7 +80,7 @@
               <form id="form" class="col s12">
                 <div class="input-field">
                   <i class="small material-icons">image</i>
-                  <input id="default-btn" type="file" width="100%">
+                  <input id="default-btn" type="file" name="image" accept="image/*" width="100%">
                   
                   
               </div>
@@ -99,7 +99,7 @@
     
                 </div>
                 <div class="input-field">
-                  <input type="text" placeholder="Add Job Profile"  id="profile" name="profile" class="validate" required>
+                  <input type="text" placeholder="Add Job Profile"  id="jobprofile" name="profile" class="validate" required>
                    <label for="profile">Job Profile</label>
                 </div>
               <div class="row">
@@ -133,17 +133,17 @@
     
               <div class="row">
                 <div class="input-field col s4">
-                    <input type="text" placeholder="skill" id="skill" class="validate" name="skill" onchange=skillInput() required>
+                    <input type="text" placeholder="skill" id="skill" class="validate" name="skill" required>
                     <label for="skill">Skill</label>
                  </div>   
     
                  <div class="input-field col s4">
-                   <input type="text" placeholder="Experties"  id="experties" name="Expertise" class="validate" onchange="skillInput()" required>
-                   <label for="experties">Experties</label>
+                   <input type="text" placeholder="Expertise"  id="expertise" name="expertise" class="validate"  required>
+                   <label for="expertise">Experties</label>
                  </div>
     
                  <div class="input-field col s4">
-                  <a class="btn-floating btn-medium wave-effect waves-light gray" onclick="addskill()"><i class="material-icons">add</i></a>
+                  <button class="btn-floating btn-medium wave-effect waves-light gray" onclick="addskill()" id="add_b"><i class="material-icons">add</i></button>
                  </div>
               </div>
                 
@@ -158,19 +158,15 @@
     
                  <div class="row right" id="buttonid">
                   <div class="input-field col s12">
-                   <input type="submit" class="btn wave-effect waves-light" value="Submit">
+                   <input type="submit" class="btn wave-effect waves-light" value="Submit" >
                     <button type="reset" class="btn wave-effect waves-light">Reset</button>
                     
                    </div>
-                  
-    
-                </div>
-    
+                 </div>
                 </div>
               </div>
           </form>
         </div>
-
       </div>
 
    
@@ -201,10 +197,7 @@
                 <span id="project">Project: ULX, Android </span><br>
                 <span id="skills">Skills: HTML,Java</span><br>
 
-             
             </div>
-
-
           </div> 
       <!--
           <div class="card">
@@ -275,11 +268,11 @@
       <h5><b> Generate Team by:</b></h5><br>
       
       <label class="radio" for="projects">
-        <input type="radio" id="projects" name="filter">    Project</label>
+        <input type="radio" id="projects" name="filter" onclick="filter()">    Project</label>
         <label class="radio" for="skills">
-      <input type="radio" id="skills" name="filter">    Skills</label>
+      <input type="radio" id="skills" name="filter" onclick="filter()">    Skills</label>
       <label class="radio" for="level">
-      <input type="radio" id="level" name="filter">    Expertise</label><br>
+      <input type="radio" id="level" name="filter" onclick="filter()">    Expertise</label><br>
       
     <!-- <span id="note">Scroll down for Results</span>-->
   </div>  
@@ -296,7 +289,11 @@
     <section class="PTsection flex jc-sa container1">
     <div id="ParticipantTeamList" class= "flex jc-sa flow" >
       <div id="inputlabel"><h5><b> Assigned Teams</b></h5></div>
+          <div class="result flex overflow" id="res">
 
+
+
+          </div>
     </div>
             
   </section>
@@ -351,7 +348,7 @@ $(document).ready(function(){
   		$('.modal').modal();
  });
   </script>
-        <script src="form.js"></script>
+        <script src="form1.js"></script>
         <script src="script.js"></script>
         <script src="Teammaker2.js"></script>
        
