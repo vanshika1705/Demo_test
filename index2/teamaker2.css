@@ -551,7 +551,7 @@ padding: 0 10px;
 /* mobile view*/  
   @media screen and (max-width: 64em) {
       .header_links{
-          display: inline;
+          display: none;
       }
       .line{
         margin-left:10%

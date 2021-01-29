@@ -87,9 +87,8 @@ function reset() {
     location.reload();
 }
 
-*/
 
-/*
+
 var a=1;
 var b=0;
 function fetchcontent(content)
@@ -167,5 +166,4 @@ for(let i= 0; i<5;i++)
 {
     fetchcontent("team.json");
 }
-
 */

@@ -145,9 +145,10 @@
                  <div class="input-field col s4">
                   <button class="btn-floating btn-medium wave-effect waves-light gray" onclick="addskill()" id="add_b"><i class="material-icons">add</i></button>
                  </div>
+              
               </div>
                 
-    
+              
     
               <div class="row" id="rowadd">
                
@@ -270,7 +271,7 @@
       <label class="radio" for="projects">
         <input type="radio" id="projects" name="filter" onclick="filter()">    Project</label>
         <label class="radio" for="skills">
-      <input type="radio" id="skills" name="filter" onclick="filter()">    Skills</label>
+      <input type="radio" id="skills" name="filter" onclick="skillfilter()">    Skills</label>
       <label class="radio" for="level">
       <input type="radio" id="level" name="filter" onclick="filter()">    Expertise</label><br>
       
@@ -344,9 +345,7 @@
   $(document).ready(function() {
 $('select').material_select();
 });
-$(document).ready(function(){
-  		$('.modal').modal();
- });
+
   </script>
         <script src="form1.js"></script>
         <script src="script.js"></script>

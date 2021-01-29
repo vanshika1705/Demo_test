@@ -3,7 +3,7 @@ $(document).ready(function(){
  });
 
   
-  function validationForm(){
+function validationForm(){
     var x= document.getElementById("firstname").value ;
 
     if(!isNaN(x)){
@@ -30,97 +30,64 @@ function onCloseform(){
 var i=0;
 var j=1;
 var k=2;
-function dateCalculate(){
-
+function dateCalculate()
+{
     var d=new Date();
     var date=document.getElementById("dateform").value;
     var tDate=d.getDate();
     var tMonth=d.getMonth();
     var tYear=d.getFullYear();
-
     var a= date.split("-");
     var datevalue=tYear-a[i];
-
     if(tMonth < (a[j]-1)){
      document.getElementById("age").value=datevalue--;
     }
-
     if(((a[j]-1)==tMonth) && (tDate<a[k])){
         document.getElementById("age").value=datevalue--;
     }
-        
-   
 
     document.getElementById("age").value=datevalue;
 }
 
+var d=0;
 
-var m=0;
-var e=[];
-var skill;
-//document.getElementById(add_b).addEventListener("click",addskill); 
+var skillarr=[]; 
+var exparr=[];
 function addskill()
 {
       var row=document.getElementById("rowadd");
         var div=document.createElement("div");
         div.className="input-field col s4";
-        var d =document.createElement("div");
-        d.className="input-field col s4";
-        //div.id=m;
 
         var inputdata=document.createElement("input");
-        var inputex = document.createElement("input");
-        inputex.type="text";
-        inputex.id="newexpertise";
+       // var inputex = document.createElement("input");
+      //  inputex.type="text";
+       // inputex.id=newexpertise;
+        //inputex.name="newexpertise";
+        //inputex.className="validate";
         inputdata.type="text";
-        inputdata.id="newskillId";
-        inputdata.name="newSkill";
+        inputdata.id=d;
+        inputdata.name="skillexp";
         inputdata.className="validate";
         
-        div.appendChild(inputdata);
-        d.appendChild(inputex);
-        row.appendChild(div);
-        row.appendChild(d);
-
-        var n=document.getElementById("skill").value;
+        var x=document.getElementById("skill").value;
+        skillarr.push(x);
         var z= document.getElementById("expertise").value;
-        document.getElementById("newskillId").value=n;
-        document.getElementById("newexpertise").value=z;
+        exparr.push(z);
+        //document.getElementById(newskill).value=x+ " " +"abc";
+            inputdata.value=x+"   "+z;
+            div.appendChild(inputdata);
+            row.appendChild(div);
+        d++;
+      
+        document.getElementById("skill").value="";
+        document.getElementById("expertise").value="";
+        
 }
 
 
-//var participant=[];
-/*var b=0;
-var projectList=[];
-    document.querySelector("form button").addEventListener("click",function(event){
-        var participentdata=document.querySelectorAll("form input");
-        var participantTeam={};
-        for(var i=0;i<participentdata.length;i++){
-            participantTeam[participentdata[i].name]=participentdata[i].value;
-            participentdata.value=" ";
-        }
-          participant.push(participantTeam);
-          projectList.push(participant.map(item=>item.project));
-          document.getElementById("displaydata").innerHTML=projectList[b];
-        var jsonformat=JSON.stringify(participantTeam);
-        console.log(jsonformat);
-        event.preventDefault();
-        saveData();
-        console.log(participant);
-        b++;
-        participant.sort(compare);
-      //  document.getElementById("projectdata").innerHTML=participant.map(item=>item.Age);
-       // document.getElementById("projectdata").innerHTML=participant.map(item=>item.fisrtName) + " "+participant.map(item=>item.project)
-        console.log(participant);
-    },false)*/
-
-
-        
-    
-
-
-
-    function compare(a,b){
+    function compare(a,b)
+    {
         var projectA=a.project.toUpperCase();
         var projectB=b.project.toUpperCase();
 
@@ -135,16 +102,25 @@ var projectList=[];
         return comparison;
         
     }
-    
-    function sortProjectdata(){
-        var h=document.getElementById("projectdatas")
-        var div=document.createElement("div");
-    
-        document.getElementById("projectdatas").innerHTML=participant.map(item=>item.fisrtName) + " "+participant.map(item=>item.project);
-        h.appendChild(div);
+
+    function scompare(a,b)
+    {
+        var skillA=a.skill.toUpperCase();
+        var skillB=b.skill.toUpperCase();
+
+        var comparison=0;
+        if(skillA > skillB)
+        {
+            comparison=1;
+        }
+        else if(skillA <skillB){
+            comparison=-1;
+        }
+        return comparison;
+        
     }
 
-    function saveData(){``
+    function saveData(){
  
         document.getElementById("firstname").value="";
         document.getElementById("lastname").value="";
@@ -155,13 +131,12 @@ var projectList=[];
         document.getElementById("dateform").value="";
         document.getElementById("expertise").value="";
         document.getElementById("project").value="";
-
-        
         document.getElementById("default-btn").value="";
         document.getElementById("profile").style.display="none" ;  
         console.log("hello world");
     }
     var a=0;
+    var users, ptitle;
 function createresultcard(w)
 {
     var res= document.getElementById("res");
@@ -170,13 +145,13 @@ function createresultcard(w)
     var cardcontent= document.createElement("div");
     cardcontent.className="card-content";
     cardcontent.id="ad";
-    var ptitle= document.createElement("span");
+     ptitle= document.createElement("span");
     ptitle.className="card-title activator grey-text text-darken-4";
-    var users= document.createElement("span");
+    users= document.createElement("p");
     users.id="partname";
-    ptitle.innerHTML= participant[a].project;
-    users.innerHTML= participant[a].fname;
-    
+
+    ptitle.innerHTML= newpro[a];
+       
     cardcontent.appendChild(ptitle);
     cardcontent.appendChild(users);
     card.appendChild(cardcontent);
@@ -185,46 +160,70 @@ function createresultcard(w)
 }
 
 
-        /*var skillData={};
-        var inputs=document.querySelector("form #skillId");
-        skillData[inputs.name]=inputs.value;
-        var experties=document.querySelector("form #expertiesId");
-        skillData[experties.name]=experties.value;
-        e.push(skillData);
-        console.log(e);
-        
-        skill=e.map(item=>item.skill);
-        expertiesValue=e.map(item=>item.Experties);
-        //document.getElementById(m).innerHTML=skill+" : "+expertiesValue +"<br/>";
-        console.log(skill);*/
-function filter()
-{   
         var pro=[];
+        var count={};
         var n=[];
-        var x=participant.sort(compare);
-        for(let i = 0;i<participant.length;i++)
-        {   
-            pro.push(participant[i].project);
-            
-            if(participant[i].project==pro[i])
-            {
-                
-                for(let j=0;j<participant.length;j++)
-                {
-                    
-                     n.push(participant[j].fname);
-
-                }
-                createresultcard(participant);
-            }
-
-        }
-        var newpro = [...new Set(pro)];
-        console.log(n);
-    console.log(newpro);
+        var v=0;
+        var c;
+        var newpro=[];
+function filter()
+{     
+     var x=participant.sort(compare);
     
-    }
+    for(let i = 0;i<participant.length;i++)
+    {   
+      pro.push(participant[i].project);
+                
+      if(participant[i].project==pro[i])
+      {  
+          n.push(participant[i].fname);
+        }
+     }
+    newpro = [...new Set(pro)];
+    
+    pro.forEach(function(i)
+    {
+        count[i] = (count[i]||0) +1;});
+        c = Object.values(count);
+        for(let k=0;k<c.length;k++)
+         {   
+            createresultcard();
+            var p=n.slice(v,v+c[k]);
+            v+=c[k];
+            users.innerHTML= p;
+        }
 
+}
+
+var sk=[];
+function skillfilter()
+{
+    var x=participant.sort(scompare);
+    console.log(x);
+    /*
+    for(let i = 0;i<participant.length;i++)
+    {   
+      sk.push(participant[i].skill);
+                
+      if(participant[i].project==sk[i])
+      {  
+          n.push(participant[i].fname);
+        }
+     }
+    newpro = [...new Set(pro)];
+    
+    pro.forEach(function(i)
+    {
+        count[i] = (count[i]||0) +1;});
+        c = Object.values(count);
+        for(let k=0;k<c.length;k++)
+         {   
+            createresultcard();
+            var p=n.slice(v,v+c[k]);
+            v+=c[k];
+            users.innerHTML= p;
+        }*/
+}
 var participant=[];
 const formdiv= document.querySelector('.modal-content'),
 form = formdiv.querySelectorAll('#form'),
@@ -240,15 +239,31 @@ function getformdata(e)
 for(var n=0;n<participantdata.length;n++){
 
 participantList[participantdata[n].name]=participantdata[n].value;
-participantdata.value="";
-}
+    if(participantdata[n].name=="skill")
+    {   
+     participantList[participantdata[n].name]=skillarr;  
+     console.log(participantdata[n].name);    
+    }
+   else if(participantdata[n].name=="expertise")
+    {   
+     participantList[participantdata[n].name]=exparr;  
+     console.log(participantdata[n].name);    
+    }
 
-participant.push(participantList);
+   participantdata.value="";
+   }
 
+   participant.push(participantList);    
+  // console.log(participant);
 
-console.log(participant);
+   participant.sort(compare);
+
+   console.log(participant);
+  
 createcard(participant);
     saveData();
+    skillarr=[];
+    exparr=[];
 
 }
 var b=0;
@@ -293,14 +308,6 @@ icon.innerHTML="close";
 date.innerHTML="Date: "+ participant[b].dob;
 project.innerHTML="<br/>Projects: " +participant[b].project;
 skil.innerHTML="<br/>Skills: "+participant[b].skill;
-/*var i=0;
-    for(i in participant.skills)
-    {   var s = document.createElement("span");
-        s.innerHTML=participant[b].skills[i].skill+",";
-        skil.appendChild(s);
-        
-    }*/
-   
 cardcontent.appendChild(title);
 cardcontent.appendChild(profile);
 rtitle.appendChild(icon);
@@ -319,52 +326,3 @@ b++;
 document.addEventListener('DOMContentLoaded', function(){
     submitInput.addEventListener('click',getformdata,false);
 },false);
-
-
-    
- 
-
-
-
-
-
-
-
-// skill object
-/*
-var e=[];
-    function skillInput(){
-          m++;
-    
-        var datavalue={};
-        
-         var inputs=document.querySelectorAll("form .skillclass");
-        for(var n=0;n<inputs.length;n++){
-    
-            datavalue[inputs[n].name]=inputs[n].value;
-        }
-        //datavalue[inputs.name]=inputs.value;
-    
-        e.push(datavalue);
-    
-        console.log(e);
-        var m=JSON.stringify(e);
-        
-    
-       // document.getElementById("skilldata").innerHTML=dataskill
-    
-     }
-     var m=0;
-     function skillData(){
-        var row=document.getElementById("rowadd");
-        var div=document.createElement("div");
-        div.className="input-field col s3";
-        div.id=m;
-        row.appendChild(div);
-        var skill=e.map(item=>item.skill);
-        var experties=e.map(item=>item.Experties);
-  document.getElementById(m).innerHTML= skill+" : "+experties;
-  //document.getElementById("skillId").value="";
-  //document.getElementById("experties").value="";
-  
-}*/
