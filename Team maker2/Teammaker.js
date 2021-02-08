@@ -53,7 +53,7 @@ var exparr=[];
 function addskill()     
 {   
         chipadd();
-        var row=document.getElementById("rowadd");
+       /* var row=document.getElementById("rowadd");
         var div=document.createElement("div");
         div.className="field input-field col s3";
         div.id="sdivId";
@@ -61,17 +61,17 @@ function addskill()
        inputdata.type="text";
         inputdata.id=d;
         inputdata.name="skillexp";
-        inputdata.className="input";
+        inputdata.className="input";*/
         var x=document.getElementById("skill").value;
         skillarr.push(x);
         skillarr.sort();
         var z= document.getElementById("expertise").value;
        exparr.push(z);
-        inputdata.value=x+"   "+z;
-        div.appendChild(inputdata);
+      //  inputdata.value=x+"   "+z;
+      //  div.appendChild(inputdata);
         
       //  row.appendChild(stardiv);
-        row.appendChild(div);
+      //  row.appendChild(div);
         d++;
         o++;
         document.getElementById("skill").value="";
@@ -217,6 +217,7 @@ createcard(participant);
     for(var i=0;i<=q.length;i++){ 
         instance.deleteChip();
      }
+    chipdata.innerHTML=" ";
 }
 
 // to create cards for each user
@@ -485,7 +486,38 @@ $('.chips').chips();
 var instance=M.Chips.getInstance($(".chips"));
 var a=instance.chipsData;
 
+var chipdata;
+var sp;
 function chipadd(){
+  
+    chipdata=document.getElementById("rowadd");
+    var divchip=document.createElement("div");
+    divchip.className="chip col s2";
+    divchip.id="divIdchip";
+    var spans=document.createElement("span");
+    spans.id="chipspan";
+    sp=document.createElement("span");
+    sp.id="chipclose";
+    sp.innerHTML="&times;";
+    sp.className="closebtn";
+   // spans.className="chipbutton";
+   // spans.innerHTML="&times";
+    var x=document.getElementById("skill").value;
+    var k=document.getElementById("expertise").value;
+   // spans.innerHTML=document.getElementById("skill").value+" | ";
+   // sp.innerHTML= document.getElementById("expertise").value;
+   
+   spans.innerHTML=x + " / " + k;
+    divchip.appendChild(spans);
+    divchip.appendChild(sp);
+    chipdata.appendChild(divchip);
+}
+
+
+
+
+
+/*function chipadd(){
   
     var chipdata=document.getElementById("rowadd");
     var divchip=document.createElement("div");
@@ -503,7 +535,7 @@ function chipadd(){
     divchip.appendChild(sp);
     chipdata.appendChild(divchip);
 
-}
+}*/
 
 
 
