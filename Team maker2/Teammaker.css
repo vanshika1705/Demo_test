@@ -258,8 +258,28 @@ header>.header{
   padding-top: 50px;
  justify-content: center;
 }
-
 #divIdchip{
+  display: inline-block;
+  padding: 0 10px;
+  height: 32px;
+  font-size: 13px;
+  line-height: 32px;
+  border-radius: 25px;
+  background-color: #e4e4e4;
+  width:auto;
+}
+.closebtn{
+  font-family: "Material Icons";
+  line-height: 25px;
+  padding-left: 10px;
+  color: #888;
+  font-weight: bold;
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/*#divIdchip{
   display: inline-block;
   padding: 0 25px;
   height: 50px;
@@ -267,7 +287,7 @@ header>.header{
   line-height: 50px;
   border-radius: 25px;
   background-color: #f1f1f1;
-}
+}*/
 .PTsection{
    
    background-color:var(--BckColor);
